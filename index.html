@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>برای سما، همیشه ♡</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+:root{--pink:#ff7896;--soft:#ffc0cf;--bg:#100b10;--panel:#1a1018;--line:#59303f;--text:#fff0f4;--muted:#c9aeb8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#321522 0%,var(--bg) 55%);color:var(--text);font-family:'Vazirmatn',Tahoma,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:10;background:#100b10eF;backdrop-filter:blur(12px);border-bottom:1px solid #442333}
+nav{max-width:1150px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{font-size:1.4rem;font-weight:800;color:var(--pink);white-space:nowrap}
+nav .links{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+nav a{font-size:.92rem;color:#f6dfe7;transition:.2s}
+nav a:hover{color:var(--pink)}
+.hero{min-height:570px;display:grid;place-items:center;text-align:center;padding:70px 20px;position:relative;overflow:hidden;background:linear-gradient(180deg,#150d14aa,#100b10f0),radial-gradient(ellipse at 70% 15%,#b64d66 0%,#522238 25%,#17101b 70%)}
+.hero:before,.hero:after{content:'♡';position:absolute;color:#ff8aa4;opacity:.18;font-size:160px;transform:rotate(-18deg)}
+.hero:before{left:8%;top:15%}.hero:after{right:8%;bottom:7%;font-size:110px}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.kicker{color:var(--soft);letter-spacing:2px}
+h1{font-size:clamp(3.5rem,10vw,7rem);line-height:1.1;margin:14px 0;color:var(--pink);text-shadow:0 0 35px #ff789655}
+.hero p{font-size:1.1rem;color:#f8e7ed;line-height:2}
+.btn{display:inline-block;background:linear-gradient(135deg,#ff8ca6,#d63d69);color:white;border:1px solid #ffc0cf;border-radius:999px;padding:13px 24px;margin-top:16px;font-family:inherit;font-size:1rem;cursor:pointer;box-shadow:0 8px 28px #e84d7733;transition:transform .2s}
+.btn:hover{transform:translateY(-3px)}
+section{max-width:1100px;margin:auto;padding:55px 22px}
+.section-title{text-align:center;color:var(--pink);font-size:1.7rem;margin:0 0 28px}
+.intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.panel{background:linear-gradient(145deg,#21131d,#130d13);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 12px 45px #0002}
+.letter h3{color:var(--pink);margin-top:0}
+.letter p{line-height:2.15;color:#f1dfe6}
+.signature{color:var(--pink);font-weight:600}
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.tile{background:#1b111a;border:1px solid #59303f;border-radius:16px;padding:20px 12px;text-align:center;cursor:pointer;transition:.2s}
+.tile:hover{transform:translateY(-4px);border-color:var(--pink)}
+.tile .emoji{font-size:2rem;display:block;margin-bottom:8px}
+.tile b{display:block;color:#ffdbe4}.tile small{display:block;color:var(--muted);margin-top:6px}
+.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.memory{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--panel);min-height:190px;display:flex;flex-direction:column}
+.memory-art{min-height:125px;display:grid;place-items:center;font-size:3.2rem;background:linear-gradient(135deg,#52263c,#1a111a)}
+.memory div:last-child{padding:13px;text-align:center}.memory b{color:var(--soft)}.memory p{margin:5px 0 0;color:var(--muted);font-size:.85rem}
+.note{text-align:center;color:var(--muted);font-size:.9rem;margin-top:20px}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.milestone{padding:20px;border-right:2px solid var(--pink);background:#1b111a;border-radius:12px}
+.milestone strong{color:var(--pink)}
+footer{border-top:1px solid var(--line);text-align:center;padding:35px 20px;color:var(--muted)}
+.heartline{font-size:2.2rem;color:var(--pink);margin:10px}
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(100px);background:#321725;border:1px solid var(--pink);padding:13px 20px;border-radius:14px;z-index:20;transition:.3s;max-width:90%;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0)}
+#surprise{display:none;margin:20px auto 0;max-width:650px;color:#ffe0e9;line-height:2;background:#26131f;border:1px solid #824057;padding:22px;border-radius:18px}
+#surprise.show{display:block;animation:pop .4s ease}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.floating{position:fixed;bottom:-30px;z-index:40;pointer-events:none;color:#ff7896;animation:floatUp 5s linear forwards;z-index:15}
+@keyframes floatUp{to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+
+button.tile{font-family:inherit;color:inherit;width:100%}
+.tile.gift .emoji{animation:wiggle 2s ease-in-out infinite}
+.tile.gift.opened{border-color:var(--pink);background:#2a1522}
+.tile.gift.hot{border-color:#b8324f}
+.tile.gift.hot:hover{box-shadow:0 0 25px #ff2d5555}
+@keyframes wiggle{0%,100%{transform:rotate(0)}10%{transform:rotate(-12deg)}20%{transform:rotate(12deg)}30%{transform:rotate(-8deg)}40%{transform:rotate(0)}}
+.modal{position:fixed;inset:0;background:#000a;backdrop-filter:blur(6px);display:none;place-items:center;z-index:30;padding:20px}
+.modal.show{display:grid}
+.modal-box{background:linear-gradient(145deg,#2a1522,#140d14);border:1px solid var(--pink);border-radius:24px;padding:34px 26px;max-width:480px;width:100%;text-align:center;animation:pop .35s ease;box-shadow:0 0 60px #ff789633}
+.modal-box.hotbox{border-color:#ff2d55;box-shadow:0 0 60px #ff2d5555}
+.big-emoji{font-size:4.5rem;display:block;animation:bounce 1s ease infinite}
+@keyframes bounce{50%{transform:translateY(-12px) scale(1.08)}}
+.modal-title{color:var(--pink);font-weight:700;font-size:1.2rem;margin:10px 0}
+.modal-text{line-height:2.1;font-size:1.05rem;color:#ffe6ee;margin:10px 0 6px}
+.badge18{display:inline-block;background:#ff2d55;color:#fff;border-radius:8px;padding:2px 10px;font-weight:800;font-size:.9rem}
+.modal-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.fancy-end{font-family:'Lalezar','Vazirmatn',cursive;font-size:1.6rem;line-height:1.8;color:#ff7896;margin-top:14px;text-shadow:0 0 18px #ff2d5577}
+.final-q{margin-top:26px;font-size:1.9rem}
+.answers{display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px}
+#yesBtn{transition:all .3s ease;line-height:1.6}
+.answer-msg{margin-top:18px;font-family:'Lalezar','Vazirmatn',cursive;font-size:1.6rem;color:#ff7896;min-height:1em}
+.btn.ghost{background:transparent;border-color:var(--line);box-shadow:none}
+@media(max-width:760px){nav{flex-direction:column;gap:10px}nav .links{gap:13px}.intro-grid{grid-template-columns:1fr}.memory-grid{grid-template-columns:repeat(2,1fr)}.timeline{grid-template-columns:1fr}.hero{min-height:500px}}
+@media(max-width:420px){nav .links{font-size:.8rem;gap:9px}.memory-grid{gap:9px}.panel{padding:20px}}
+</style>
+</head>
+<body>
+<header><nav>
+  <a class="logo" href="#home">♡ سما</a>
+  <div class="links">
+    <a href="#home">خانه</a><a href="#letter">نامه‌ی من</a><a href="#day">۷ شهریور</a>
+  </div>
+  <a href="#end">برای تو، همیشه ♡</a>
+</nav></header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="kicker">یه گوشه‌ی کوچیک از دنیا، فقط برای تو</div>
+    <h1>سما ♡</h1>
+    <p>بعضی آدما بی‌خبر میان و حالِ دنیا رو قشنگ‌تر می‌کنن...<br>برای من، تو همون آدمی.</p>
+    <a class="btn" href="#letter">یه چیز برات دارم ♡</a>
+  </div>
+</section>
+
+<section id="letter">
+  <h2 class="section-title">یه نامه‌ی کوچیک برای تو 💌</h2>
+  <div class="intro-grid">
+    <article class="panel letter">
+      <h3>سماِ عزیزم، ♡</h3>
+      <p>شاید نتونم همیشه دقیق بگم چقدر بودنت برام قشنگه، برای همین این صفحه رو ساختم تا یه گوشه از حرفایی که توی دلمه اینجا بمونه.</p>
+      <p>از وقتی تو وارد دنیام شدی، چیزای کوچیک هم می‌تونن دلیل لبخندم بشن. دوست دارم کنار هم کلی خاطره بسازیم، بخندیم، حرف بزنیم و روزای قشنگ‌تری داشته باشیم.</p>
+      <p>این سایت شاید کوچیک باشه، ولی با فکر تو ساخته شده. هر بار دیدیش، یادت باشه یه نفر هست که از خوشحال بودنت خوشحال می‌شه.</p>
+      <div class="signature">با کلی عشق، برای سماِ خودم ❤️</div>
+    </article>
+    <div class="tiles">
+      <button class="tile gift" onclick="openGift(0)"><span class="emoji">🎁</span><b>سورپرایز اول</b><small>بازش کن ♡</small></button>
+      <button class="tile gift" onclick="openGift(1)"><span class="emoji">🎁</span><b>سورپرایز دوم</b><small>بازش کن ♡</small></button>
+      <button class="tile gift" onclick="openGift(2)"><span class="emoji">🎁</span><b>سورپرایز سوم</b><small>بازش کن ♡</small></button>
+      <button class="tile gift hot" onclick="openGift(3)"><span class="emoji">🎁</span><b>سورپرایز چهارم</b><small>🔞 +۱۸</small></button>
+      <button class="tile gift hot" style="grid-column:span 2" onclick="openGift(4)"><span class="emoji">🎁</span><b>سورپرایز پنجم</b><small>🔞 +۱۸</small></button>
+    </div>
+  </div>
+</section>
+
+<section id="day">
+  <h2 class="section-title">۷ شهریور؛ روز شروع ما 💞</h2>
+  <div class="panel" style="text-align:center">
+    <div class="heartline">♡ ۷ شهریور ♡</div>
+    <p style="line-height:2;color:#f5dce5">از این روز به بعد، یه تاریخ معمولی برای من معنی قشنگ‌تری پیدا کرد.<br>امیدوارم هر سال که می‌گذره، خاطره‌های بیشتری برای لبخند زدن داشته باشیم.</p>
+    <button class="btn" onclick="heartRain()">یه عالمه قلب برای سما ❤️</button>
+  </div>
+</section>
+</main>
+
+<footer id="end">
+  <div class="heartline">♡ ♥ ♡</div>
+  <div>ساخته‌شده با عشق، مخصوص سما</div>
+  <p>۷ شهریور — شروع یه قصه‌ی قشنگ</p>
+  <div class="fancy-end final-q">می‌شه امشب با هم یه مکالمه‌ی شیطنت‌آمیز بریم، قشنگم؟ 😈💋</div>
+  <div class="answers" id="answers">
+    <button class="btn" id="yesBtn" onclick="sayYes()">ارههههه خیلی وقته شیطنت می‌خوام 😈</button>
+    <button class="btn ghost" id="noBtn" onclick="sayNo()">نه زشتههههه 🙈</button>
+  </div>
+  <div class="answer-msg" id="answerMsg"></div>
+</footer>
+<div class="modal" id="modal" onclick="if(event.target===this)closeGift()">
+  <div class="modal-box" id="modalBox">
+    <span class="big-emoji" id="mEmoji"></span>
+    <div class="modal-title" id="mTitle"></div>
+    <div class="modal-text" id="mText"></div>
+    <div class="modal-actions" id="mActions"></div>
+  </div>
+</div>
+<div class="toast" id="toast">سما، تو خیلی خاصی! ♡</div>
+<script>
+const gifts=[
+ {emoji:'💘',title:'پیکاپ‌لاین شماره ۱',text:'ببخشید، شما نقشه‌ی بهشت دارید؟ آخه توی چشمات گم شدم... و اصلاً هم دنبال راه برگشت نیستم ♡',rain:['♡','♥','💗','💕','💖'],toast:'قلبا فقط برای توئن ♡'},
+ {emoji:'🌹',title:'پیکاپ‌لاین شماره ۲',text:'تو که از صبح تو ذهنمی، خسته نشدی؟ بیا یه کم بشین، اجاره‌ش رو با یه لبخند حساب می‌کنم 🌹',rain:['🌹','🌷','🌸','🌺','💐'],toast:'یه دسته گل برای سما 🌹'},
+ {emoji:'✨',title:'پیکاپ‌لاین شماره ۳',text:'می‌گن ستاره‌ها آرزو برآورده می‌کنن؛ ولی من وقتی تو رو دیدم، دیگه آرزویی نموند که بخوام ✨',rain:['✨','⭐','🌟','💫','🌙'],toast:'تو ستاره‌ی منی ✨'},
+ {emoji:'😈',title:'پیکاپ‌لاین شماره ۴',adult:true,text:'اگه پای راستت صبحانه بود، پای چپت شام... من دلم می‌خواست همیشه ناهار بخورم 😏🔥',rain:['🔥','😈','💋','❤️‍🔥','😏'],toast:'اوه اوه... سما خانم قرمز شد؟ 😏'},
+ {emoji:'💋',title:'پیکاپ‌لاین شماره ۵',adult:true,gate:true,text:'از وقتی اومدی تو زندگیم دیگه نیازی به بالش ندارم، چون ممه‌ها و باسنت جاشو گرفته',rain:['💋','🔥','😈','❤️‍🔥','💦'],toast:'سما جان، چقدر داغ شد اینجا 🔥'}
+];
+let opened=new Set();
+function openGift(i){
+  const g=gifts[i];
+  const box=document.getElementById('modalBox');
+  const actions=document.getElementById('mActions');
+  box.classList.toggle('hotbox',!!g.adult);
+  document.getElementById('modal').classList.add('show');
+  if(g.gate && !opened.has(i)){
+    document.getElementById('mEmoji').textContent='🔞';
+    document.getElementById('mTitle').innerHTML='<span class="badge18">+۱۸</span> این یکی خیلی داغه!';
+    document.getElementById('mText').textContent='مطمئنی می‌خوای بازش کنی؟ 😏';
+    document.getElementById('mActions').innerHTML='<button class="btn" onclick="revealGift('+i+')">آره، جرأت دارم 🔥</button><button class="btn ghost" onclick="closeGift()">نه، می‌ترسم</button>';
+    return;
+  }
+  revealGift(i);
+}
+function revealGift(i){
+  const g=gifts[i];
+  opened.add(i);
+  document.querySelectorAll('.tile.gift')[i].classList.add('opened');
+  document.querySelectorAll('.tile.gift .emoji')[i].textContent=g.emoji;
+  document.getElementById('mEmoji').textContent=g.emoji;
+  document.getElementById('mTitle').innerHTML=(g.adult?'<span class="badge18">+۱۸</span> ':'')+g.title;
+  document.getElementById('mText').textContent=g.text;
+  if(g.ending){const e=document.createElement('div');e.className='fancy-end';e.textContent=g.ending;document.getElementById('mText').appendChild(e);}
+  document.getElementById('mActions').innerHTML='<button class="btn" onclick="rain(gifts['+i+'].rain,34)">یه بار دیگه 🎉</button><button class="btn ghost" onclick="closeGift()">بستن</button>';
+  rain(g.rain,34);
+  showToast(g.toast);
+}
+function closeGift(){document.getElementById('modal').classList.remove('show')}
+function showToast(t){
+  const toast=document.getElementById('toast');
+  toast.textContent=t;
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),2600);
+}
+function rain(symbols,n){
+  for(let i=0;i<n;i++){
+    const h=document.createElement('span');
+    h.className='floating';
+    h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    h.style.left=Math.random()*100+'vw';
+    h.style.fontSize=(18+Math.random()*26)+'px';
+    h.style.animationDuration=(3+Math.random()*3)+'s';
+    h.style.animationDelay=(Math.random()*0.8)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),7500);
+  }
+}
+let noCount=0;
+const noMsgs=['اِ؟ مطمئنی؟ 😏','دوباره فکر کن 🥺','دلم شکست 💔','یه بار دیگه نگاه کن 😈','این دکمه داره خسته می‌شه 🙈','آخرین شانس!! 😤','باشه دیگه ولش کن 😂'];
+function sayNo(){
+  noCount++;
+  const yes=document.getElementById('yesBtn');
+  yes.style.fontSize=(1+noCount*0.28)+'rem';
+  yes.style.padding=(13+noCount*3)+'px '+(24+noCount*6)+'px';
+  showToast(noMsgs[Math.min(noCount-1,noMsgs.length-1)]);
+  if(noCount>=7){document.getElementById('noBtn').style.display='none';}
+}
+function sayYes(){
+  rain(['🔥','😈','💋','❤️‍🔥','😏','♥'],50);
+  document.getElementById('answerMsg').textContent='می‌دونستم! پس امشب منتظرتم 😏🔥';
+  showToast('آخ جون 😈💋');
+}
+function heartRain(){
+  const symbols=['♡','♥','💗','💕'];
+  for(let i=0;i<26;i++){
+    const h=document.createElement('span');
+    h.className='floating';
+    h.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    h.style.left=Math.random()*100+'vw';
+    h.style.fontSize=(18+Math.random()*24)+'px';
+    h.style.animationDuration=(3+Math.random()*3)+'s';
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6500);
+  }
+  const toast=document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'),2600);
+}
+</script>
+</body>
+</html>
